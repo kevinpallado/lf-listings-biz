@@ -10,6 +10,7 @@ import {
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { Header } from "@/components/header"
 import Image from 'next/image';
 import { Input } from "@/components/ui/input"
 
@@ -47,16 +48,7 @@ const properties = [
 export default function Home() {
     return (
         <div>
-            <header className="absolute top-0 left-0 right-0 z-10 w-full flex justify-between items-center h-16 px-16">
-                <div>Logo</div>
-                <nav className="flex items-center space-x-4 lg:space-x-6 mx-6 text-white">
-                    <a className="text-sm font-medium transition-colors hover:text-primary" href="/">Home</a>
-                    <a className="text-sm font-medium transition-colors hover:text-primary" href="/">About Us</a>
-                    <a className="text-sm font-medium transition-colors hover:text-primary" href="/">Property</a>
-                    <a className="text-sm font-medium transition-colors hover:text-primary" href="/">Blog</a>
-                </nav>
-                <Button type="submit" variant="destructive">Sign In</Button>
-            </header>
+            <Header />
             <div className="banner">
                 <Image className="absolute inset-0 w-full h-full object-cover" width={2000} height={2000} alt="Banner" src="https://images.pexels.com/photos/3935333/pexels-photo-3935333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
                 <div className="relative z-10 max-w-3xl m-auto">
@@ -70,7 +62,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <div className="bg-black">
+            <main className="bg-black">
                 <div className="bg-white rounded-t-[48px]">
                     <div className="mx-auto py-10 px-16">
                         <div className="mb-8 space-y-1">
@@ -118,7 +110,7 @@ export default function Home() {
                         </Pagination>
                     </div>
                 </div>
-            </div>
+            </main>
         </div>
     );
 }
