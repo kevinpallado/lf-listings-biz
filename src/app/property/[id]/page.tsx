@@ -1,20 +1,35 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 
 import { Button } from "@/components/ui/button"
-import { Header } from "@/components/header"
+import Header from "@/components/header"
 import Image from 'next/image';
 import { Separator } from "@/components/ui/separator"
+import { fetchAPI } from "@/lib/fetch-api";
 
-export default function Page() {
+type Params = {
+    id: string | number
+};
+
+async function findOne(value: Params) {
+    // Fetch data from external API
+    const { data } = await fetchAPI(`/listings/property/${value.id}`)
+
+    // Pass data to the page via props
+    return data
+}
+
+export default async function Page({ params }: { params: Params }) {
+    const data = await findOne(params);
+
     return (
         <div>
             <Header />
             <div className="banner">
-                <Image className="absolute inset-0 w-full h-full object-cover" width={2000} height={2000} alt="Banner" src="https://images.pexels.com/photos/3935333/pexels-photo-3935333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                <Image className="absolute inset-0 w-full h-full object-cover" width={2000} height={2000} alt="Banner" priority src="https://images.pexels.com/photos/3935333/pexels-photo-3935333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
                 <div className="relative z-10 max-w-3xl mt-auto mx-auto">
                     <div className="mb-12">
-                        <h1 className="text-5xl text-white font-bold mb-6">217 W 57th Street | Central Park Tower PH</h1>
-                        <p className="text-white text-lg">11238922305.00 PHP</p>
+                        <h1 className="text-5xl text-white font-bold mb-6">{data.listing_directory}</h1>
+                        <p className="text-white text-lg">{data.listing_price}</p>
                     </div>
                     <div className="grid grid-cols-4 gap-4">
                         <Image className="aspect-video object-cover rounded-md" width={1000} height={1000} alt="Property" src="https://images.pexels.com/photos/3625713/pexels-photo-3625713.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
@@ -51,7 +66,7 @@ export default function Page() {
                                         </BreadcrumbItem>
                                         <BreadcrumbSeparator />
                                         <BreadcrumbItem>
-                                        <BreadcrumbPage>217 W 57th Street | Central Park Tower PH</BreadcrumbPage>
+                                        <BreadcrumbPage>{data.listing_directory}</BreadcrumbPage>
                                         </BreadcrumbItem>
                                     </BreadcrumbList>
                                 </Breadcrumb>
@@ -161,14 +176,12 @@ export default function Page() {
                                     </div>
                                     <div className="flex-grow">
                                         <div className="mb-1.5">
-                                            <h5 className="font-bold">
-                                                <a href="/" className="hover:underline">Kevin Eleven</a>
-                                            </h5>
-                                            <p className="text-sm">Chief Executive Officer / Licensed Real Estate Broker</p>
+                                            <h5 className="font-bold">{data.agent_office_name}</h5>
+                                            <p className="text-sm">{data.broker_office_name}</p>
                                         </div>
                                         <div className="font-medium">
-                                            <a href="/" className="block hover:underline">(646) 480-7665</a>
-                                            <a href="/" className="block hover:underline uppercase">kevineleven@gmail.com</a>
+                                            <a href={`tel:${data.agent_office_phone}`} className="block hover:underline">{data.agent_office_phone}</a>
+                                            <a href={`mailto:${data.agent_office_email}`} className="block hover:underline uppercase">{data.agent_office_email}</a>
                                         </div>
                                     </div>
                                     </div>

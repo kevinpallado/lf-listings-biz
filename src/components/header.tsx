@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 
-function Header() {
+export default function Header() {
     return (
         <header className="absolute top-0 left-0 right-0 z-10 w-full flex justify-between items-center h-16 px-16">
             <div>Logo</div>
@@ -14,5 +14,3 @@ function Header() {
         </header>
     )
 }
-
-export { Header }
