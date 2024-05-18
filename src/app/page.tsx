@@ -36,7 +36,7 @@ export default async function Home() {
                             <h2 className="text-3xl font-bold tracking-tight">Featured Properties</h2>
                         </div>
                         <div className="grid grid-cols-3 gap-12 mb-6">
-                            {data.map((property: Property) => {
+                            {data.slice(0, -1).map((property: Property) => {
                                 return (
                                     <Link href={`/property/${property.ListingKey}`} key={property.ListingKey} className="relative">
                                         <Badge variant="secondary" className="absolute top-4 left-4 uppercase rounded z-10 bg-white/80">For sale</Badge>

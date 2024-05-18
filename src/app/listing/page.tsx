@@ -10,10 +10,10 @@ import { fetchAPI } from "@/lib/fetch-api";
 
 async function getListingData(value: number) {
     // Fetch data from external API
-    const { data } = await fetchAPI(`/listings/pagination?page=${value}`)
+    const response = await fetchAPI(`/listings/pagination?page=${value}`)
 
     // Pass data to the page via props
-    return data
+    return response;
 }
 
 export default async function Page({
@@ -26,7 +26,7 @@ export default async function Page({
 }) {
     const currentPage = Number(searchParams?.page) || 1;
 
-    const data = await getListingData(currentPage);
+    const { data, meta } = await getListingData(currentPage);
 
     return (
         <div>
@@ -53,7 +53,7 @@ export default async function Page({
                         <div className="grid grid-cols-3 gap-12 mb-6">
                             {data.map((property: Property) => {
                                 return (
-                                    <Link href={`/property/${property.ListingKey}`} key={property.ListingKey} className="relative">
+                                    <div key={property.ListingKey} className="relative">
                                         <Badge variant="secondary" className="absolute top-4 left-4 uppercase rounded z-10 bg-white/80">For sale</Badge>
                                         <div className="overflow-hidden rounded-lg aspect-video">
                                             {property.Media && property.Media.length > 0 ? (
@@ -70,12 +70,12 @@ export default async function Page({
                                                 {property.LivingArea !== null ? <li>{property.LivingArea} Sq.ft.</li> : null}
                                             </ul>
                                         </div>
-                                    </Link>
+                                    </div>
                                 )
                             })}
                         </div>
 
-                        <Pagination />
+                        <Pagination meta={meta} />
                     </div>
                 </div>
             </main>

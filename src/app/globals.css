@@ -91,3 +91,7 @@
     height: 100%;
     z-index: 1;
 }
+
+.selected {
+    @apply shadow-sm border border-input rounded-md bg-background;
+}
