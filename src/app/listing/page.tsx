@@ -53,7 +53,7 @@ export default async function Page({
                         <div className="grid grid-cols-3 gap-12 mb-6">
                             {data.map((property: Property) => {
                                 return (
-                                    <div key={property.ListingKey} className="relative">
+                                    <Link href={`/property/${property.ListingKey}`} key={property.ListingKey} className="relative">
                                         <Badge variant="secondary" className="absolute top-4 left-4 uppercase rounded z-10 bg-white/80">For sale</Badge>
                                         <div className="overflow-hidden rounded-lg aspect-video">
                                             {property.Media && property.Media.length > 0 ? (
@@ -70,7 +70,7 @@ export default async function Page({
                                                 {property.LivingArea !== null ? <li>{property.LivingArea} Sq.ft.</li> : null}
                                             </ul>
                                         </div>
-                                    </div>
+                                    </Link>
                                 )
                             })}
                         </div>
