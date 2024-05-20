@@ -3,12 +3,11 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbP
 import { Button } from "@/components/ui/button"
 import Header from "@/components/header"
 import Image from 'next/image';
+import PropertySwiper from '@/components/property-swiper';
 import { Separator } from "@/components/ui/separator"
 import { fetchAPI } from "@/lib/fetch-api";
 
-type Params = {
-    id: string | number
-};
+type Params = { id: string | number };
 
 async function findOne(value: Params) {
     // Fetch data from external API
@@ -25,19 +24,14 @@ export default async function Page({ params }: { params: Params }) {
         <div>
             <Header />
             <div className="banner banner-overlay">
-                <Image className="absolute inset-0 w-full h-full object-cover" width={2000} height={2000} alt="Banner" priority src="https://images.pexels.com/photos/3935333/pexels-photo-3935333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
                 <div className="relative z-10 max-w-3xl mt-auto mx-auto">
                     <div className="mb-12">
-                        <h1 className="text-5xl text-white font-bold mb-6">{data.listing_directory}</h1>
-                        <p className="text-white text-lg">{data.listing_price}</p>
-                    </div>
-                    <div className="grid grid-cols-4 gap-4">
-                        <Image className="aspect-video object-cover rounded-md" width={1000} height={1000} alt="Property" src="https://images.pexels.com/photos/3625713/pexels-photo-3625713.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-                        <Image className="aspect-video object-cover rounded-md" width={1000} height={1000} alt="Property" src="https://images.pexels.com/photos/3639539/pexels-photo-3639539.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-                        <Image className="aspect-video object-cover rounded-md" width={1000} height={1000} alt="Property" src="https://images.pexels.com/photos/3639504/pexels-photo-3639504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-                        <Image className="aspect-video object-cover rounded-md" width={1000} height={1000} alt="Property" src="https://images.pexels.com/photos/7579042/pexels-photo-7579042.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                        <h1 className="text-5xl text-white font-bold leading-tight mb-6 line-clamp-2">{data.UnparsedAddress}</h1>
+                        <p className="text-white text-lg">{data.ListPrice}</p>
                     </div>
                 </div>
+
+                <PropertySwiper data={data.Media} />
             </div>
             <main className="bg-black">
                 <div className="bg-white rounded-t-[48px]">

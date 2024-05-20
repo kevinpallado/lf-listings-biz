@@ -1,9 +1,7 @@
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Header from "@/components/header"
 import Image from 'next/image';
 import { Input } from "@/components/ui/input"
-import Link from 'next/link';
 import Pagination from "@/components/pagination";
 import { Property } from "@/types/property";
 import PropertyCard from "@/components/property-card";

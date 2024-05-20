@@ -95,3 +95,12 @@
 .selected {
     @apply shadow-sm border border-input rounded-md bg-background;
 }
+
+swiper-container::part(pagination) {
+    display: none;
+}
+
+swiper-container::part(container) {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
