@@ -24,7 +24,7 @@ export default async function Page({ params }: { params: Params }) {
     return (
         <div>
             <Header />
-            <div className="banner">
+            <div className="banner banner-overlay">
                 <Image className="absolute inset-0 w-full h-full object-cover" width={2000} height={2000} alt="Banner" priority src="https://images.pexels.com/photos/3935333/pexels-photo-3935333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
                 <div className="relative z-10 max-w-3xl mt-auto mx-auto">
                     <div className="mb-12">

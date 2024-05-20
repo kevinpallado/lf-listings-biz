@@ -1,9 +1,9 @@
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Header from "@/components/header"
 import Image from 'next/image';
 import Link from 'next/link';
 import { Property } from "@/types/property";
+import PropertyCard from "@/components/property-card";
 import { fetchAPI } from "@/lib/fetch-api";
 
 async function getFeaturedData() {
@@ -20,13 +20,19 @@ export default async function Home() {
     return (
         <div>
             <Header />
-            <div className="banner">
-                <Image className="absolute inset-0 w-full h-full object-cover" width={2000} height={2000} alt="Banner" priority src="https://images.pexels.com/photos/3935333/pexels-photo-3935333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-                <div className="relative z-10 max-w-3xl m-auto">
-                    <div className="mb-12">
-                        <h1 className="text-5xl text-white font-bold mb-6">Premier Real Estate Solutions</h1>
-                        <p className="text-white">Explore luxury homes, family-friendly neighborhoods, and investment properties. Our expert team offers personalized service and deep market knowledge to help you find the perfect property. Start your journey with us today!</p>
+            <div className="relative banner-overlay">
+                <div className="absolute top-0 left-0 h-full w-full bg-black -z-10">
+                    <div className="relative h-full overflow-hidden">
+                        <video className="absolute -z-10 object-cover w-full h-full" poster="https://res.cloudinary.com/luxuryp/videos/f_auto,q_auto/so_0,eo_0/nxyi3r8gi6tccpz4ke5p/8.jpg" loop muted autoPlay playsInline>
+                            <source data-src="https://res.cloudinary.com/luxuryp/videos/f_auto:video,q_auto/nxyi3r8gi6tccpz4ke5p/8.webm" type="video/webm" src="https://res.cloudinary.com/luxuryp/videos/f_auto:video,q_auto/nxyi3r8gi6tccpz4ke5p/8.webm" />
+                            <source data-src="https://res.cloudinary.com/luxuryp/videos/f_auto:video,q_auto/nxyi3r8gi6tccpz4ke5p/8.mp4" type="video/mp4" src="https://res.cloudinary.com/luxuryp/videos/f_auto:video,q_auto/nxyi3r8gi6tccpz4ke5p/8.mp4" />
+                        </video>
                     </div>
+                </div>
+                <div className="absolute inset-0 transition-opacity"></div>
+                <div className="relative z-10 flex flex-col justify-end text-center max-w-3xl m-auto min-h-[80vh] pb-28">
+                    <h1 className="text-7xl text-white font-bold mb-6">Premier Real Estate Solutions</h1>
+                    <p className="text-white font-bold">Explore luxury homes, family-friendly neighborhoods, and investment properties. Our expert team offers personalized service and deep market knowledge to help you find the perfect property. Start your journey with us today!</p>
                 </div>
             </div>
             <main className="bg-black">
@@ -36,26 +42,7 @@ export default async function Home() {
                             <h2 className="text-3xl font-bold tracking-tight">Featured Properties</h2>
                         </div>
                         <div className="grid grid-cols-3 gap-12 mb-6">
-                            {data.slice(0, -1).map((property: Property) => {
-                                return (
-                                    <Link href={`/property/${property.ListingKey}`} key={property.ListingKey} className="relative">
-                                        <Badge variant="secondary" className="absolute top-4 left-4 uppercase rounded z-10 bg-white/80">For sale</Badge>
-                                        <div className="overflow-hidden rounded-lg aspect-video">
-                                            <Image className="h-auto object-cover transition-all hover:scale-105 rounded-lg w-full" width={500} height={500} alt="Real estate" src={property.Media[0].MediaURL} />
-                                        </div>
-                                        <div className="space-y-1 pt-4 pb-2 text-sm">
-                                            <h3 className="text-base font-bold leading-none mb-2">{property.ListPrice}</h3>
-                                            <p className="text-base text-muted-foreground">{property.UnparsedAddress}</p>
-                                            <ul className="flex items-center space-x-4 text-sm text-muted-foreground font-medium uppercase">
-                                                {property.BedroomsTotal > 0 ? <li>{property.BedroomsTotal} Beds</li> : null}
-                                                {property.BathroomsFull > 0 ? <li>{property.BathroomsFull} Bathrooms</li> : null}
-                                                {property.BathroomsHalf > 0 ? <li>{property.BathroomsHalf} Half Baths</li> : null}
-                                                <li>{property.LivingArea} Sq.ft.</li>
-                                            </ul>
-                                        </div>
-                                    </Link>
-                                )
-                            })}
+                            {data.slice(0, -1).map((property: Property) => <PropertyCard key={property.ListingKey} data={property} />)}
                         </div>
 
                         <Button size="lg" className="h-[58px] rounded-full" asChild>
