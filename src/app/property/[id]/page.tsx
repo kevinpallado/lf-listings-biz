@@ -60,14 +60,14 @@ export default async function Page({ params }: { params: Params }) {
                                         </BreadcrumbItem>
                                         <BreadcrumbSeparator />
                                         <BreadcrumbItem>
-                                        <BreadcrumbPage>{data.listing_directory}</BreadcrumbPage>
+                                        <BreadcrumbPage>{data.UnparsedAddress}</BreadcrumbPage>
                                         </BreadcrumbItem>
                                     </BreadcrumbList>
                                 </Breadcrumb>
 
                                 <div className="mb-20">
                                     <h2 className="text-5xl font-bold mb-8">Property Description</h2>
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam minus accusamus adipisci molestiae voluptates, animi, aut ut, ducimus magnam reiciendis earum dignissimos dolore ea et tempore sapiente? Reiciendis perferendis odio porro iure consequatur dicta facilis! Repudiandae odio accusantium consequatur fugit ipsa non sint amet omnis. Doloremque commodi quam adipisci iusto!</p>
+                                    <p>{data.PublicRemarks}</p>
                                 </div>
 
                                 <section id="overview" className="mb-20">
@@ -77,19 +77,19 @@ export default async function Page({ params }: { params: Params }) {
                                         <tbody>
                                             <tr className="border-y py-8">
                                                 <td className="w-4/12 font-bold px-4">Property Type</td>
-                                                <td className="py-8">Condo</td>
+                                                <td className="py-8">{data.PropertyType}</td>
                                             </tr>
                                             <tr className="border-b py-8">
                                                 <td className="w-4/12 font-bold px-4">Location</td>
-                                                <td className="py-8">217 West 57th Street Unit: PENTHOUSE, New York City, NY 10019</td>
+                                                <td className="py-8">{data.UnparsedAddress}</td>
                                             </tr>
                                             <tr className="border-b py-8">
                                                 <td className="w-4/12 font-bold px-4">MLS ID</td>
-                                                <td className="py-8">RPLU-1032522855446</td>
+                                                <td className="py-8">{data.ListingId}</td>
                                             </tr>
                                             <tr className="border-b py-8">
-                                                <td className="w-4/12 font-bold px-4">Listing Last Updated</td>
-                                                <td className="py-8">3/12/2024 4:14 PM</td>
+                                                <td className="w-4/12 font-bold px-4">Market Date</td>
+                                                <td className="py-8">{data.OnMarketDate}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -103,11 +103,11 @@ export default async function Page({ params }: { params: Params }) {
                                         <div className="space-y-2 mb-8 px-4">
                                             <div className="flex items-center">
                                                 <div className="w-4/12">Total Bedrooms</div>
-                                                <div className="font-bold">7</div>
+                                                <div className="font-bold">{data.BedroomsTotal}</div>
                                             </div>
                                             <div className="flex items-center">
                                                 <div className="w-4/12">Full Bathrooms</div>
-                                                <div className="font-bold">11</div>
+                                                <div className="font-bold">{data.BathroomsFull}</div>
                                             </div>
                                         </div>
                                         <Separator />
@@ -118,15 +118,15 @@ export default async function Page({ params }: { params: Params }) {
                                         <div className="space-y-2 mb-8 px-4">
                                             <div className="flex items-center">
                                                 <div className="w-4/12">Stories</div>
-                                                <div className="font-bold">131</div>
+                                                <div className="font-bold">{data.StoriesTotal}</div>
                                             </div>
                                             <div className="flex items-center">
                                                 <div className="w-4/12">Air Conditioning</div>
-                                                <div className="font-bold">Other</div>
+                                                <div className="font-bold">{data.Cooling}</div>
                                             </div>
                                             <div className="flex items-center">
                                                 <div className="w-4/12">Other Exterior Features</div>
-                                                <div className="font-bold">Building Roof Deck, None</div>
+                                                <div className="font-bold">{data.ExteriorFeatures}</div>
                                             </div>
                                         </div>
                                         <Separator />
@@ -137,11 +137,11 @@ export default async function Page({ params }: { params: Params }) {
                                         <div className="space-y-2 mb-8 px-4">
                                             <div className="flex items-center">
                                                 <div className="w-4/12">Neighborhood</div>
-                                                <div className="font-bold">Midtown East</div>
+                                                <div className="font-bold">{data.SubdivisionName}</div>
                                             </div>
                                             <div className="flex items-center">
-                                                <div className="w-4/12">View Description</div>
-                                                <div className="font-bold">River</div>
+                                                <div className="w-4/12">Utilities</div>
+                                                <div className="font-bold">{data.Utilities}</div>
                                             </div>
                                         </div>
                                         <Separator />
@@ -152,11 +152,7 @@ export default async function Page({ params }: { params: Params }) {
                                         <div className="space-y-2 mb-8 px-4">
                                             <div className="flex items-center">
                                                 <div className="w-4/12">Price</div>
-                                                <div className="font-bold">11238922305.00 PHP</div>
-                                            </div>
-                                            <div className="flex items-center">
-                                                <div className="w-4/12">Common Charges</div>
-                                                <div className="font-bold">1657308.77 PHP/mo</div>
+                                                <div className="font-bold">{data.ListPrice}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -170,12 +166,12 @@ export default async function Page({ params }: { params: Params }) {
                                     </div>
                                     <div className="flex-grow">
                                         <div className="mb-1.5">
-                                            <h5 className="font-bold">{data.agent_office_name}</h5>
-                                            <p className="text-sm">{data.broker_office_name}</p>
+                                            <h5 className="font-bold">{data.BackOfficeAddedBy}</h5>
+                                            <p className="text-sm">{data.AgentBrokerOffice}</p>
                                         </div>
                                         <div className="font-medium">
-                                            <a href={`tel:${data.agent_office_phone}`} className="block hover:underline">{data.agent_office_phone}</a>
-                                            <a href={`mailto:${data.agent_office_email}`} className="block hover:underline uppercase">{data.agent_office_email}</a>
+                                            <a href={`tel:${data.AgentContactNumber}`} className="block hover:underline">{data.AgentContactNumber}</a>
+                                            <a href={`mailto:${data.AgentEmail}`} className="block hover:underline uppercase">{data.AgentEmail}</a>
                                         </div>
                                     </div>
                                     </div>
