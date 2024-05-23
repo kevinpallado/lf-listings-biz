@@ -154,6 +154,10 @@ export default async function Page({ params }: { params: Params }) {
                                                 <div className="w-4/12">Price</div>
                                                 <div className="font-bold">{data.ListPrice}</div>
                                             </div>
+                                            <div className="flex items-center">
+                                                <div className="w-4/12">Commission Type</div>
+                                                <div className="font-bold">{data.CommissionType ? `${data.CommissionType} @ ${data.CommissionAmount}` : 'No Information'}</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </section>
