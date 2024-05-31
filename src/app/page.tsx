@@ -36,9 +36,8 @@ export default async function Home() {
             <div className="relative banner-overlay">
                 <div className="absolute top-0 left-0 h-full w-full bg-black -z-10">
                     <div className="relative h-full overflow-hidden">
-                        <video className="absolute -z-10 object-cover w-full h-full" poster="https://res.cloudinary.com/luxuryp/videos/f_auto,q_auto/so_0,eo_0/nxyi3r8gi6tccpz4ke5p/8.jpg" loop muted autoPlay playsInline>
-                            <source data-src="https://res.cloudinary.com/luxuryp/videos/f_auto:video,q_auto/nxyi3r8gi6tccpz4ke5p/8.webm" type="video/webm" src="https://res.cloudinary.com/luxuryp/videos/f_auto:video,q_auto/nxyi3r8gi6tccpz4ke5p/8.webm" />
-                            <source data-src="https://res.cloudinary.com/luxuryp/videos/f_auto:video,q_auto/nxyi3r8gi6tccpz4ke5p/8.mp4" type="video/mp4" src="https://res.cloudinary.com/luxuryp/videos/f_auto:video,q_auto/nxyi3r8gi6tccpz4ke5p/8.mp4" />
+                        <video className="absolute -z-10 object-cover w-full h-full" poster="/thumbnail.jpg" loop muted autoPlay playsInline>
+                            <source data-src="/banner.mp4" type="video/mp4" src="/banner.mp4" />
                         </video>
                     </div>
                 </div>
@@ -62,14 +61,13 @@ export default async function Home() {
                                         <span key={index}>
                                             <Link href="/" className="relative z-10 inline-flex items-center justify-between text-base font-bold p-[calc(1rem-1px)_1rem] cursor-pointer outline-0 no-underline transition-all select-none whitespace-nowrap gap-x-4 min-w-full h-full rounded-lg bg-white [&:hover+div]:opacity-100 hover:bg-primary hover:text-white">
                                                 <span className="line-clamp-1">{link.name}</span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
                                             </Link>
                                             <div className="absolute top-0 right-0 bottom-0 w-4/6 h-full overflow-hidden opacity-0 transition-opacity pointer-events-none rounded-tr-[48px] region-overlay">
                                                 <Image className="object-cover h-full w-full" width={500} height={500} src={link.image} alt="Property location" />
                                             </div>
                                         </span>
                                     ))}
-
                                 </div>
                             </div>
                         </div>
