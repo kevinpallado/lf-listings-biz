@@ -36,7 +36,7 @@ export default async function Page({
                 <div className="relative z-10 max-w-3xl m-auto">
                     <div className="mb-12">
                         <h1 className="text-4xl text-white font-bold mb-6">Empowering Your Real Estate Experience</h1>
-                        <p className="text-white">Finding Homes, Building Dreams – Where Families Thrive Together</p>
+                        <p className="text-white">Finding Homes, Building Dreams | Where Families Thrive Together</p>
                     </div>
                     <div className="flex max-w-lg w-full bg-white rounded-full py-4 pr-4 pl-8 mx-auto items-center space-x-2">
                         <Input type="text" className="bg-white h-auto" placeholder="Enter your home address..." style={{ padding: 'calc(1rem - 1px) 1.25rem' }} />
