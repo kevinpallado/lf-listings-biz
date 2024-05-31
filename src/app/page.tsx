@@ -21,16 +21,12 @@ export default async function Home() {
 
     const quickLinks = [
         {
-            name: 'New York City',
+            name: 'New York',
             image: 'https://images.pexels.com/photos/2224861/pexels-photo-2224861.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         },
         {
             name: 'Florida',
             image: 'https://images.pexels.com/photos/2406203/pexels-photo-2406203.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        },
-        {
-            name: 'California',
-            image: 'https://images.pexels.com/photos/208745/pexels-photo-208745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         },
     ]
 
@@ -48,13 +44,13 @@ export default async function Home() {
                 </div>
                 <div className="absolute inset-0 transition-opacity"></div>
                 <div className="relative z-10 flex flex-col justify-end text-center max-w-3xl m-auto min-h-[80vh] pb-28">
-                    <h1 className="text-7xl text-white font-bold mb-6">Premier Real Estate Solutions</h1>
-                    <p className="text-white font-bold">Explore luxury homes, family-friendly neighborhoods, and investment properties. Our expert team offers personalized service and deep market knowledge to help you find the perfect property. Start your journey with us today!</p>
+                    <h1 className="text-6xl text-white font-bold mb-6">Empowering Your Real Estate Experience</h1>
+                    <p className="text-white font-bold">"Finding Homes, Building Dreams – Where Families Thrive Together"</p>
                 </div>
             </div>
             <main className="bg-black">
                 <div className="bg-[#F7F7F7] rounded-t-[48px]">
-                    <section className="relative mx-auto py-28 px-20">
+                    {/* <section className="relative mx-auto py-28 px-20">
                         <div className="flex gap-x-24">
                             <div className="mb-8 mx-auto space-y-2">
                                 <h2 className="text-primary text-5xl font-bold tracking-tight">Our Regions</h2>
@@ -77,7 +73,7 @@ export default async function Home() {
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </section> */}
 
                     <section className="relative mx-auto py-28 px-20 bg-white">
                         <div className="max-w-2xl w-full mb-8 space-y-2">
@@ -103,10 +99,10 @@ export default async function Home() {
                             <div className="flex items-center justify-center py-28 pr-20">
                                 <div>
                                     <h4 className="text-sm text-left text-[#787878] font-bold uppercase tracking-wide mb-8">Become an Agent</h4>
-                                    <h2 className="text-5xl text-primary font-bold leading-tight max-w-md w-full mb-6">Demand More From Your Brokerage</h2>
-                                    <p className="mb-6">Grow your business and brand with a brokerage that isn’t afraid of making the old guard uncomfortable.</p>
+                                    <h2 className="text-5xl text-primary font-bold leading-tight max-w-md w-full mb-6">Close Like A Million Dollar Agent </h2>
+                                    <p className="mb-6">London Foster is the Fastest Growing, Innovative Real Estate Office in South Florida.</p>
                                     <Button size="lg" className="font-bold h-[58px] rounded-full" asChild>
-                                        <Link href="/listing">
+                                        <Link href="https://www.joinlondonfoster.com/">
                                             Join Us <svg className="ml-4" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                                         </Link>
                                     </Button>
@@ -115,14 +111,14 @@ export default async function Home() {
                         </div>
                     </section>
 
-                    <section className="relative mx-auto py-28 bg-white">
+                    {/* <section className="relative mx-auto py-28 bg-white">
                         <div className="max-w-2xl w-full mb-8 space-y-2 px-20">
                             <h2 className="text-primary text-5xl font-bold leading-tight">The Boldest New Developments</h2>
                             <p>Explore transformative new buildings that elevate modern luxury living.</p>
                         </div>
 
                         <LocationSwiper />
-                    </section>
+                    </section> */}
                 </div>
             </main>
             <Footer />

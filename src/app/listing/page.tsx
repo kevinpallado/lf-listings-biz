@@ -47,8 +47,8 @@ export default async function Page({
             <main className="bg-black">
                 <div className="bg-white rounded-t-[48px]">
                     <div className="mx-auto py-10 px-16">
-                        <div className="mb-8 space-y-1">
-                            <h2 className="text-5xl font-bold tracking-tight">Featured Properties</h2>
+                        <div className="mb-8 space-y-2">
+                            <h2 className="text-primary text-5xl font-bold tracking-tight">Listing Properties</h2>
                         </div>
                         <div className="grid grid-cols-3 gap-12 mb-6">
                             {data.map((property: Property) => <PropertyCard key={property.ListingKey} data={property} />)}
