@@ -44,7 +44,7 @@ export default async function Home() {
                 <div className="absolute inset-0 transition-opacity"></div>
                 <div className="relative z-10 flex flex-col justify-end text-center max-w-3xl m-auto min-h-[80vh] pb-28">
                     <h1 className="text-6xl text-white font-bold mb-6">Empowering Your Real Estate Experience</h1>
-                    <p className="text-white font-bold">"Finding Homes, Building Dreams – Where Families Thrive Together"</p>
+                    <p className="text-white font-bold">Finding Homes, Building Dreams – Where Families Thrive Together</p>
                 </div>
             </div>
             <main className="bg-black">
