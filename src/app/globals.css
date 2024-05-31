@@ -13,7 +13,7 @@
         --popover: 0 0% 100%;
         --popover-foreground: 240 10% 3.9%;
 
-        --primary: 240 5.9% 10%;
+        --primary: 212 74% 39%;
         --primary-foreground: 0 0% 98%;
 
         --secondary: 240 4.8% 95.9%;
@@ -33,6 +33,8 @@
         --ring: 240 10% 3.9%;
 
         --radius: 0.5rem;
+
+        --icon-arrow: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tcmlnaHQiPjxwYXRoIGQ9Im05IDE4IDYtNi02LTYiLz48L3N2Zz4=");
     }
 
     .dark {
@@ -103,4 +105,72 @@ swiper-container::part(pagination) {
 swiper-container::part(container) {
     padding-bottom: 10px;
     padding-top: 10px;
+}
+
+
+.region-overlay::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(113deg, #f7f7f7 0%, #f7f7f7 28%, rgba(254, 254, 254, 0) 100%);
+}
+
+.location-slide {
+    width: 242px;
+    height: 480px;
+    border-radius: 8px;
+    position: relative;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 2;
+    overflow: hidden;
+    color: #fff;
+    transition: all .5s;
+}
+
+.location-slide:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    transition: all .3s;
+    background: linear-gradient(11deg, rgba(19, 24, 38, 0.20) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.location-slide img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.location-slide a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+.location-name {
+    @apply text-2xl font-bold;
+    line-height: 1.3;
+}
+
+.location-capital {
+    @apply text-sm font-bold;
+    line-height: 1.3;
 }

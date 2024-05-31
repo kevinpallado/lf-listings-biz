@@ -14,7 +14,7 @@ export default function PropertyCard({ data } : { data: Property}) {
                 ) : null}
             </div>
             <div className="space-y-1 pt-4 pb-2 text-sm">
-                <h3 className="text-base font-bold leading-none mb-2">{data.ListPrice}</h3>
+                <h3 className="text-base font-bold leading-none mb-2" suppressHydrationWarning={true}>{data.ListPrice}</h3>
                 <p className="text-base text-muted-foreground">{data.UnparsedAddress}</p>
                 <ul className="flex items-center space-x-4 text-sm text-muted-foreground font-medium uppercase">
                     {data.BedroomsTotal > 0 ? <li className="inline-flex items-center after:content-[''] after:block after:w-[3px] after:h-[3px] after:bg-black after:ml-4 after:rounded-full text-[#182230]">{data.BedroomsTotal} Beds</li> : null}

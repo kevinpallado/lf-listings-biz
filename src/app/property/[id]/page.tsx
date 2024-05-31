@@ -1,6 +1,7 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 
 import { Button } from "@/components/ui/button"
+import Footer from "@/components/footer"
 import Header from "@/components/header"
 import Image from 'next/image';
 import PropertySwiper from '@/components/property-swiper';
@@ -181,6 +182,7 @@ export default async function Page({ params }: { params: Params }) {
                     </div>
                 </div>
             </main>
+            <Footer />
         </div>
     );
 }

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import Footer from "@/components/footer"
 import Header from "@/components/header"
 import Image from 'next/image';
 import { Input } from "@/components/ui/input"
@@ -47,7 +48,7 @@ export default async function Page({
                 <div className="bg-white rounded-t-[48px]">
                     <div className="mx-auto py-10 px-16">
                         <div className="mb-8 space-y-1">
-                            <h2 className="text-3xl font-bold tracking-tight">Featured Properties</h2>
+                            <h2 className="text-5xl font-bold tracking-tight">Featured Properties</h2>
                         </div>
                         <div className="grid grid-cols-3 gap-12 mb-6">
                             {data.map((property: Property) => <PropertyCard key={property.ListingKey} data={property} />)}
@@ -57,6 +58,7 @@ export default async function Page({
                     </div>
                 </div>
             </main>
+            <Footer />
         </div>
     );
 }
