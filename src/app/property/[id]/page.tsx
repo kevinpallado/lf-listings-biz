@@ -57,11 +57,11 @@ export default async function Page({ params }: { params: Params }) {
                                 <Breadcrumb className="mb-10">
                                     <BreadcrumbList>
                                         <BreadcrumbItem>
-                                        <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                                            <BreadcrumbLink href="/">Home</BreadcrumbLink>
                                         </BreadcrumbItem>
                                         <BreadcrumbSeparator />
                                         <BreadcrumbItem>
-                                        <BreadcrumbPage>{data.UnparsedAddress}</BreadcrumbPage>
+                                            <BreadcrumbPage>{data.UnparsedAddress}</BreadcrumbPage>
                                         </BreadcrumbItem>
                                     </BreadcrumbList>
                                 </Breadcrumb>
@@ -70,6 +70,23 @@ export default async function Page({ params }: { params: Params }) {
                                     <h2 className="text-5xl font-bold mb-8">Property Description</h2>
                                     <p>{data.PublicRemarks}</p>
                                 </div>
+
+                                <section id="commission" className="mb-20">
+                                    <div>
+                                        <h3 className="text-4xl font-bold mb-8">Commission</h3>
+
+                                        <div className="space-y-2 mb-8 px-4">
+                                            <div className="flex items-center">
+                                                <div className="w-4/12">Price</div>
+                                                <div className="font-bold">{data.ListPrice}</div>
+                                            </div>
+                                            <div className="flex items-center">
+                                                <div className="w-4/12">Commission Type</div>
+                                                <div className="font-bold">{data.CommissionType ? `${data.CommissionType} @ ${data.CommissionAmount}` : 'No Information'}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
 
                                 <section id="overview" className="mb-20">
                                     <h2 className="text-5xl font-bold mb-8">Overview</h2>
@@ -147,34 +164,24 @@ export default async function Page({ params }: { params: Params }) {
                                         </div>
                                         <Separator />
                                     </div>
-                                    <div>
-                                        <h3 className="text-4xl font-bold mb-8">Financial</h3>
-
-                                        <div className="space-y-2 mb-8 px-4">
-                                            <div className="flex items-center">
-                                                <div className="w-4/12">Price</div>
-                                                <div className="font-bold">{data.ListPrice}</div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </section>
                             </div>
                             <aside className="bg-white w-[550px]">
                                 <div className="sticky top-32">
                                     <div className="flex justify-center rounded-md bg-[#F2F4F7] p-6 space-x-4">
-                                    <div>
-                                        <Image className="aspect-square object-cover rounded-md w-24" width={200} height={200} alt="Agent" src="https://images.pexels.com/photos/7709235/pexels-photo-7709235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-                                    </div>
-                                    <div className="flex-grow">
-                                        <div className="mb-1.5">
-                                            <h5 className="font-bold">{data.BackOfficeAddedBy}</h5>
-                                            <p className="text-sm">{data.AgentBrokerOffice}</p>
+                                        <div>
+                                            <Image className="aspect-square object-cover rounded-md w-24" width={200} height={200} alt="Agent" src="https://images.pexels.com/photos/7709235/pexels-photo-7709235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
                                         </div>
-                                        <div className="font-medium">
-                                            <a href={`tel:${data.AgentContactNumber}`} className="block hover:underline">{data.AgentContactNumber}</a>
-                                            <a href={`mailto:${data.AgentEmail}`} className="block hover:underline uppercase">{data.AgentEmail}</a>
+                                        <div className="flex-grow">
+                                            <div className="mb-1.5">
+                                                <h5 className="font-bold">{data.BackOfficeAddedBy}</h5>
+                                                <p className="text-sm">{data.AgentBrokerOffice}</p>
+                                            </div>
+                                            <div className="font-medium">
+                                                <a href={`tel:${data.AgentContactNumber}`} className="block hover:underline">{data.AgentContactNumber}</a>
+                                                <a href={`mailto:${data.AgentEmail}`} className="block hover:underline uppercase">{data.AgentEmail}</a>
+                                            </div>
                                         </div>
-                                    </div>
                                     </div>
                                 </div>
                             </aside>
