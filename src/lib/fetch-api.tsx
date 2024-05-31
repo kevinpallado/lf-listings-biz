@@ -6,11 +6,12 @@ export async function fetchAPI(
     try {
         // Merge default and user options
         const mergedOptions = {
-        next: { revalidate: 60 },
-        headers: {
-            "Content-Type": "application/json",
-        },
-        ...options,
+            next: { revalidate: 60 },
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${process.env.API_TOKEN}`
+            },
+            ...options,
         };
 
         // Build request URL
