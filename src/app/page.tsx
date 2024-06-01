@@ -48,7 +48,7 @@ export default async function Home() {
                 </div>
             </div>
             <main className="bg-black">
-                <div className="bg-[#F7F7F7] rounded-t-[48px]">
+                <div className="bg-[#F7F7F7] rounded-t-[48px] overflow-hidden">
                     {/* <section className="relative mx-auto py-28 px-20">
                         <div className="flex gap-x-24">
                             <div className="mb-8 mx-auto space-y-2">

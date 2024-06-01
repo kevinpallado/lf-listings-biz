@@ -46,7 +46,7 @@ export default async function Page({
             </div>
             <main className="bg-black">
                 <div className="bg-white rounded-t-[48px]">
-                    <div className="mx-auto py-10 px-16">
+                    <div className="mx-auto py-28 px-20">
                         <div className="mb-8 space-y-2">
                             <h2 className="text-primary text-5xl font-bold tracking-tight">Listing Properties</h2>
                         </div>

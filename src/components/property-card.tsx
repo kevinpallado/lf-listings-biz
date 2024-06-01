@@ -2,11 +2,13 @@ import { Badge } from "@/components/ui/badge"
 import Image from 'next/image';
 import Link from 'next/link';
 import { Property } from "@/types/property";
+import slugify from "slugify";
 
 export default function PropertyCard({ data } : { data: Property}) {
+    const slug = slugify(data.UnparsedAddress, { lower: true });
 
     return (
-        <Link href={`/property/${data.ListingKey}`} className="relative">
+        <Link href={`/property/${data.ListingId}_${data.ListingKey}_${slug}`} className="relative">
             <Badge variant="secondary" className="absolute top-4 left-4 uppercase rounded z-10 bg-white/80">For sale</Badge>
             <div className="overflow-hidden rounded-lg aspect-video">
                 {data.Media && data.Media.length > 0 ? (

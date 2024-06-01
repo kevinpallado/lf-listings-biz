@@ -8,11 +8,13 @@ import PropertySwiper from '@/components/property-swiper';
 import { Separator } from "@/components/ui/separator"
 import { fetchAPI } from "@/lib/fetch-api";
 
-type Params = { id: string | number };
+type Params = { id: string };
 
 async function findOne(value: Params) {
+    const getId = value.id.split('_');
+
     // Fetch data from external API
-    const { data } = await fetchAPI(`/listings/property/${value.id}`)
+    const { data } = await fetchAPI(`/listings/property/${getId[1]}`)
 
     // Pass data to the page via props
     return data
@@ -28,7 +30,7 @@ export default async function Page({ params }: { params: Params }) {
                 <div className="relative z-10 max-w-3xl mt-auto mx-auto">
                     <div className="mb-12">
                         <h1 className="text-5xl text-white font-bold leading-tight mb-6 line-clamp-2">{data.UnparsedAddress}</h1>
-                        <p className="text-white text-lg">{data.ListPrice}</p>
+                        <p className="text-white text-lg" suppressHydrationWarning={true}>{data.ListPrice}</p>
                     </div>
                 </div>
 
@@ -36,7 +38,7 @@ export default async function Page({ params }: { params: Params }) {
             </div>
             <main className="bg-black">
                 <div className="bg-white rounded-t-[48px]">
-                    <div className="mx-auto pb-10 px-16">
+                    <div className="mx-auto pb-10 px-28">
                         <div className="sticky z-10 bg-white top-0 mb-10">
                             <div className="flex items-center">
                                 <ul className="flex items-center flex-grow">
@@ -67,7 +69,7 @@ export default async function Page({ params }: { params: Params }) {
                                 </Breadcrumb>
 
                                 <div className="mb-20">
-                                    <h2 className="text-5xl font-bold mb-8">Property Description</h2>
+                                    <h2 className="text-5xl text-primary font-bold mb-8">Property Description</h2>
                                     <p>{data.PublicRemarks}</p>
                                 </div>
 
@@ -78,18 +80,18 @@ export default async function Page({ params }: { params: Params }) {
                                         <div className="space-y-2 mb-8 px-4">
                                             <div className="flex items-center">
                                                 <div className="w-4/12">Price</div>
-                                                <div className="font-bold">{data.ListPrice}</div>
+                                                <div className="font-bold" suppressHydrationWarning={true}>{data.ListPrice}</div>
                                             </div>
                                             <div className="flex items-center">
                                                 <div className="w-4/12">Commission Type</div>
-                                                <div className="font-bold">{data.CommissionType ? `${data.CommissionType} @ ${data.CommissionAmount}` : 'No Information'}</div>
+                                                <div className="font-bold" suppressHydrationWarning={true}>{data.CommissionType ? `${data.CommissionType} @ ${data.CommissionAmount}` : 'No Information'}</div>
                                             </div>
                                         </div>
                                     </div>
                                 </section>
 
                                 <section id="overview" className="mb-20">
-                                    <h2 className="text-5xl font-bold mb-8">Overview</h2>
+                                    <h2 className="text-5xl text-primary font-bold mb-8">Overview</h2>
 
                                     <table className="w-full">
                                         <tbody>
@@ -114,7 +116,7 @@ export default async function Page({ params }: { params: Params }) {
                                 </section>
 
                                 <section id="amenities">
-                                    <h2 className="text-5xl font-bold mb-10">Property Features & Amenities</h2>
+                                    <h2 className="text-5xl text-primary font-bold mb-10">Property Features & Amenities</h2>
                                     <div className="mb-8">
                                         <h3 className="text-4xl font-bold mb-8">Interior</h3>
 
