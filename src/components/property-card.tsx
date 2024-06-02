@@ -6,10 +6,9 @@ import slugify from "slugify";
 
 export default function PropertyCard({ data } : { data: Property}) {
     const slug = slugify(data.UnparsedAddress, { lower: true });
-
     return (
         <Link href={`/property/${data.ListingId}_${data.ListingKey}_${slug}`} className="relative">
-            <Badge variant="secondary" className="absolute top-4 left-4 uppercase rounded z-10 bg-white/80">For sale</Badge>
+            <Badge variant="secondary" className="absolute top-4 left-4 uppercase rounded z-10 bg-white/80">{data.ListingType}</Badge>
             <div className="overflow-hidden rounded-lg aspect-video">
                 {data.Media && data.Media.length > 0 ? (
                     <Image className="h-auto object-cover transition-all hover:scale-105 rounded-lg w-full" width={500} height={500} alt="Property Image" src={data.Media[0].MediaURL} />

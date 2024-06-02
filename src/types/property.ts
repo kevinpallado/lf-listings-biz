@@ -7,6 +7,7 @@ export type Property = {
     ParkingFeatures: string;
     PropertyType: string;
     ListPrice: number;
+    ListingType: string;
     BathroomsHalf: number;
     UnparsedAddress: string;
     OnMarketDate: string;
