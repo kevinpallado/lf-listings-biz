@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import Footer from "@/components/footer"
 import Header from "@/components/header"
 import Image from 'next/image';
+import Logo from '@/public/logo-colored.svg';
 import PropertySwiper from '@/components/property-swiper';
 import { Separator } from "@/components/ui/separator"
 import { fetchAPI } from "@/lib/fetch-api";
@@ -75,7 +76,7 @@ export default async function Page({ params }: { params: Params }) {
 
                                 <section id="commission" className="mb-20">
                                     <div>
-                                        <h3 className="text-4xl font-bold mb-8">Commission</h3>
+                                        <h3 className="text-5xl text-primary font-bold mb-8">Commission</h3>
 
                                         <div className="space-y-2 mb-8 px-4">
                                             <div className="flex items-center">
@@ -164,7 +165,6 @@ export default async function Page({ params }: { params: Params }) {
                                                 <div className="font-bold">{data.Utilities}</div>
                                             </div>
                                         </div>
-                                        <Separator />
                                     </div>
                                 </section>
                             </div>
@@ -172,16 +172,16 @@ export default async function Page({ params }: { params: Params }) {
                                 <div className="sticky top-32">
                                     <div className="flex justify-center rounded-md bg-[#F2F4F7] p-6 space-x-4">
                                         <div>
-                                            <Image className="aspect-square object-cover rounded-md w-24" width={200} height={200} alt="Agent" src="https://images.pexels.com/photos/7709235/pexels-photo-7709235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                                            <Image className="aspect-square object-cover rounded-md w-24" width={200} height={200} alt="Agent" src={data.AgentImage ? data.AgentImage : Logo} />
                                         </div>
                                         <div className="flex-grow">
                                             <div className="mb-1.5">
-                                                <h5 className="font-bold">{data.BackOfficeAddedBy}</h5>
-                                                <p className="text-sm">{data.AgentBrokerOffice}</p>
+                                                <h5 className="font-bold">{data.BackOfficeAddedBy ? data.BackOfficeAddedBy : data.ListAgentFullName}</h5>
+                                                <p className="text-sm">{data.AgentBrokerOffice ? data.AgentBrokerOffice : data.ListOfficeName}</p>
                                             </div>
                                             <div className="font-medium">
-                                                <a href={`tel:${data.AgentContactNumber}`} className="block hover:underline">{data.AgentContactNumber}</a>
-                                                <a href={`mailto:${data.AgentEmail}`} className="block hover:underline uppercase">{data.AgentEmail}</a>
+                                                <a href={`tel:${data.AgentContactNumber ? data.AgentContactNumber : data.ListAgentPreferredPhone}`} className="block hover:underline">{data.AgentContactNumber ? data.AgentContactNumber : data.ListAgentPreferredPhone}</a>
+                                                <a href={`mailto:${data.AgentEmail ? data.AgentEmail : data.ListAgentEmail}`} className="block hover:underline uppercase">{data.AgentEmail ? data.AgentEmail : data.ListAgentEmail}</a>
                                             </div>
                                         </div>
                                     </div>

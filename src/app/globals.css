@@ -79,7 +79,7 @@
 
 .banner {
     @apply relative flex flex-col items-center text-center h-full pt-24 pb-10;
-    min-height: 480px;
+    min-height: 580px;
     background-color: #F9FAFB;
 }
 
