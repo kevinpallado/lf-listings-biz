@@ -30,7 +30,7 @@ export default async function Page({ params }: { params: Params }) {
             <div className="banner banner-overlay">
                 <div className="relative z-10 max-w-3xl mt-auto mx-auto">
                     <div className="mb-12">
-                        <h1 className="text-5xl text-white font-bold leading-tight mb-6 line-clamp-2">{data.UnparsedAddress}</h1>
+                        <h1 className="text-4xl md:text-5xl text-white font-bold mb-6 line-clamp-2">{data.UnparsedAddress}</h1>
                         <p className="text-white text-lg" suppressHydrationWarning={true}>{data.ListPrice}</p>
                     </div>
                 </div>
@@ -39,23 +39,23 @@ export default async function Page({ params }: { params: Params }) {
             </div>
             <main className="bg-black">
                 <div className="bg-white rounded-t-[48px]">
-                    <div className="mx-auto pb-10 px-28">
+                    <div className="wrapper relative pb-10 pt-1 xl:pt-0">
                         <div className="sticky z-10 bg-white top-0 mb-10">
                             <div className="flex items-center">
-                                <ul className="flex items-center flex-grow">
+                                <ul className="hidden xl:flex items-center flex-grow">
                                     <li className="max-w-60 w-full py-10 px-4 text-center">Overview</li>
                                     <li className="max-w-60 w-full py-10 px-4 text-center">Features & Amenities</li>
                                     <li className="max-w-60 w-full py-10 px-4 text-center">Lifestyle Index</li>
                                 </ul>
-                                <div className="space-x-2">
-                                    <Button size="lg" variant="outline" className="h-[56px] rounded-full">Get in Touch</Button>
-                                    <Button size="lg" className="h-[56px] rounded-full">Schedule a Tour</Button>
+                                <div className="space-x-2 flex xl:block w-full xl:w-auto py-10 xl:py-0">
+                                    <Button size="lg" variant="outline" className="h-[56px] rounded-full grow">Get in Touch</Button>
+                                    <Button size="lg" className="h-[56px] rounded-full grow">Schedule a Tour</Button>
                                 </div>
                             </div>
-                            <Separator />
+                            <Separator className="hidden xl:block" />
                         </div>
 
-                        <div className="flex space-x-6">
+                        <div className="xl:flex xl:space-x-10 2xl:space-x-16">
                             <div className="flex-1 min-w-0">
                                 <Breadcrumb className="mb-10">
                                     <BreadcrumbList>
@@ -69,14 +69,14 @@ export default async function Page({ params }: { params: Params }) {
                                     </BreadcrumbList>
                                 </Breadcrumb>
 
-                                <div className="mb-20">
-                                    <h2 className="text-5xl text-primary font-bold mb-8">Property Description</h2>
-                                    <p>{data.PublicRemarks}</p>
+                                <div className="mb-20 space-y-2 sm:space-y-3">
+                                    <h2 className="section-title">Property Description</h2>
+                                    <p className="section-description">{data.PublicRemarks}</p>
                                 </div>
 
                                 <section id="commission" className="mb-20">
                                     <div>
-                                        <h3 className="text-5xl text-primary font-bold mb-8">Commission</h3>
+                                        <h3 className="section-title mb-8">Commission</h3>
 
                                         <div className="space-y-2 mb-8 px-4">
                                             <div className="flex items-center">
@@ -92,7 +92,7 @@ export default async function Page({ params }: { params: Params }) {
                                 </section>
 
                                 <section id="overview" className="mb-20">
-                                    <h2 className="text-5xl text-primary font-bold mb-8">Overview</h2>
+                                    <h2 className="section-title mb-8">Overview</h2>
 
                                     <table className="w-full">
                                         <tbody>
@@ -117,9 +117,9 @@ export default async function Page({ params }: { params: Params }) {
                                 </section>
 
                                 <section id="amenities">
-                                    <h2 className="text-5xl text-primary font-bold mb-10">Property Features & Amenities</h2>
+                                    <h2 className="section-title mb-10">Property Features & Amenities</h2>
                                     <div className="mb-8">
-                                        <h3 className="text-4xl font-bold mb-8">Interior</h3>
+                                        <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8">Interior</h3>
 
                                         <div className="space-y-2 mb-8 px-4">
                                             <div className="flex items-center">
@@ -134,7 +134,7 @@ export default async function Page({ params }: { params: Params }) {
                                         <Separator />
                                     </div>
                                     <div className="mb-8">
-                                        <h3 className="text-4xl font-bold mb-8">Exterior</h3>
+                                        <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8">Exterior</h3>
 
                                         <div className="space-y-2 mb-8 px-4">
                                             <div className="flex items-center">
@@ -153,7 +153,7 @@ export default async function Page({ params }: { params: Params }) {
                                         <Separator />
                                     </div>
                                     <div className="mb-8">
-                                        <h3 className="text-4xl font-bold mb-8">Details</h3>
+                                        <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8">Details</h3>
 
                                         <div className="space-y-2 mb-8 px-4">
                                             <div className="flex items-center">
@@ -168,7 +168,7 @@ export default async function Page({ params }: { params: Params }) {
                                     </div>
                                 </section>
                             </div>
-                            <aside className="bg-white w-[550px]">
+                            <aside className="bg-white xl:max-w-md w-full">
                                 <div className="sticky top-32">
                                     <div className="flex justify-center rounded-md bg-[#F2F4F7] p-6 space-x-4">
                                         <div>

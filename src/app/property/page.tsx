@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Property } from "@/types/property";
 import PropertyCard from "@/components/property-card";
+import { Separator } from "@/components/ui/separator";
 import { fetchAPI } from "@/lib/fetch-api";
 
 async function getFeaturedData() {
@@ -24,18 +25,18 @@ export default async function Home() {
             <div className="banner banner-overlay">
                 <Image className="absolute inset-0 w-full h-full aspect-video object-cover" width={2000} height={2000} priority alt="Banner" src="https://images.pexels.com/photos/3935333/pexels-photo-3935333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
                 <div className="relative z-10 flex flex-col justify-end text-center max-w-3xl m-auto">
-                    <h1 className="text-5xl text-white font-bold mb-6">Premier Real Estate Solutions</h1>
-                    <p className="text-white">Explore luxury homes, family-friendly neighborhoods, and investment properties. Our expert team offers personalized service and deep market knowledge to help you find the perfect property. Start your journey with us today!</p>
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl text-white font-bold mb-6">Premier Real Estate Solutions</h1>
+                    <p className="text-white font-bold">Explore luxury homes, family-friendly neighborhoods, and investment properties. Our expert team offers personalized service and deep market knowledge to help you find the perfect property. Start your journey with us today!</p>
                 </div>
             </div>
             <main className="bg-black">
                 <div className="bg-white rounded-t-[48px]">
-                    <div className="mx-auto py-28 px-20">
-                        <div className="max-w-max-w-2xl mb-8 space-y-1">
-                            <h2 className="text-5xl text-primary font-bold tracking-tight">Featured Properties</h2>
-                            <p>Check out some of our most exclusive houses, apartments, townhomes, penthouses, and more.</p>
+                    <div className="wrapper relative py-12 sm:py-16 md:lg-20 lg:py-24 xl:py-28">
+                        <div className="max-w-max-w-2xl w-full mb-8 space-y-2 sm:space-y-3">
+                            <h2 className="section-title">Featured Properties</h2>
+                            <p className="section-description">Check out some of our most exclusive houses, apartments, townhomes, penthouses, and more.</p>
                         </div>
-                        <div className="grid grid-cols-3 gap-12 mb-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-6 sm:gap-6 md:lg-gap-8 lg:gap-10 xl:gap-12 mb-6">
                             {data.slice(0, -1).map((property: Property) => <PropertyCard key={property.ListingKey} data={property} />)}
                         </div>
 
@@ -47,6 +48,7 @@ export default async function Home() {
                     </div>
                 </div>
             </main>
+            <Separator />
             <Footer />
         </div>
     );

@@ -42,8 +42,8 @@ export default async function Home() {
                     </div>
                 </div>
                 <div className="absolute inset-0 transition-opacity"></div>
-                <div className="relative z-10 flex flex-col justify-end text-center max-w-3xl m-auto min-h-[80vh] pb-28">
-                    <h1 className="text-6xl text-white font-bold mb-6">Empowering Your Real Estate Experience</h1>
+                <div className="relative z-10 flex flex-col justify-end text-center max-w-3xl m-auto min-h-[80vh] pb-10 sm:pb-14 md:pb-16 lg:pb-20 xl:pb-24 px-4">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl text-white font-bold mb-6">Empowering Your Real Estate Experience</h1>
                     <p className="text-white font-bold">Finding Homes, Building Dreams | Where Families Thrive Together</p>
                 </div>
             </div>
@@ -73,12 +73,12 @@ export default async function Home() {
                         </div>
                     </section> */}
 
-                    <section className="relative mx-auto py-28 px-20 bg-white">
-                        <div className="max-w-2xl w-full mb-8 space-y-2">
-                            <h2 className="text-primary text-5xl font-bold tracking-tight">Featured Properties</h2>
-                            <p>Check out some of our most exclusive houses, apartments, townhomes, penthouses, and more.</p>
+                    <section className="wrapper relative py-12 sm:py-16 md:lg-20 lg:py-24 xl:py-28 bg-white">
+                        <div className="max-w-2xl w-full mb-8 space-y-2 sm:space-y-3">
+                            <h2 className="section-title">Featured Properties</h2>
+                            <p className="section-description">Check out some of our most exclusive houses, apartments, townhomes, penthouses, and more.</p>
                         </div>
-                        <div className="grid grid-cols-3 gap-12 mb-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-6 sm:gap-6 md:lg-gap-8 lg:gap-10 xl:gap-12 mb-6">
                             {data.slice(0, -1).map((property: Property) => <PropertyCard key={property.ListingKey} data={property} />)}
                         </div>
 
@@ -90,14 +90,14 @@ export default async function Home() {
                     </section>
 
                     <section className="bg-[#F7F7F7]">
-                        <div className="grid grid-cols-2 gap-x-20">
-                            <div className="relative opacity-80">
+                        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-10 lg:gap-x-12 xl:gap-x-16 2xl:gap-x-20">
+                            <div className="relative opacity-80 aspect-video md:aspect-auto">
                                 <Image className="absolute inset-0 w-full h-full object-cover" width={500} height={500} alt="banner" src="https://images.pexels.com/photos/105950/pexels-photo-105950.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
                             </div>
-                            <div className="flex items-center justify-center py-28 pr-20">
+                            <div className="md:flex items-center justify-center py-12 md:py-28 px-6 sm:px-8 md:px-10 lg:pr-12 xl:pr-16 2xl:pr-20">
                                 <div>
-                                    <h4 className="text-sm text-left text-[#787878] font-bold uppercase tracking-wide mb-8">Become an Agent</h4>
-                                    <h2 className="text-5xl text-primary font-bold leading-tight max-w-md w-full mb-6">Close Like A Million Dollar Agent </h2>
+                                    <h4 className="text-sm text-left text-[#787878] font-bold uppercase tracking-wide mb-4 md:mb-8">Become an Agent</h4>
+                                    <h2 className="text-3xl sm:text-5xl text-primary font-bold leading-tight max-w-md w-full mb-4 md:mb-6">Close Like A Million Dollar Agent </h2>
                                     <p className="mb-6">London Foster is the Fastest Growing, Innovative Real Estate Office in South Florida.</p>
                                     <Button size="lg" className="font-bold h-[58px] rounded-full" asChild>
                                         <Link href="https://www.joinlondonfoster.com/">

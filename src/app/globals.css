@@ -107,6 +107,17 @@ swiper-container::part(container) {
     padding-top: 10px;
 }
 
+.wrapper {
+    @apply mx-auto px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20;
+}
+
+.section-title {
+    @apply text-primary text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
+}
+
+.section-description {
+    @apply text-gray-500 leading-snug;
+}
 
 .region-overlay::after {
     position: absolute;

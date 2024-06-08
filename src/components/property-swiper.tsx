@@ -14,16 +14,16 @@ export default function PropertySwiper({ data }: { data: Property['Media'] }) {
                 <swiper-container
                     space-between="10"
                     loop="true"
-                    navigation="true"
                     thumbs-swiper=".swiper-listing-thumbs"
                     effect="fade"
                     className="swiper-container"
                     suppressHydrationWarning={true}
+                    class="absolute inset-0 w-full h-full object-cover overflow-hidden z-0"
                 >
                     {data.map((media: any) => <swiper-slide class="-mt-2.5" key={media.MediaURL} suppressHydrationWarning={true}><Image className="w-full h-full aspect-video object-cover" priority width={1000} height={1000} alt="Property" src={media.MediaURL} /></swiper-slide>)}
                 </swiper-container>
             </div>
-            <div className="max-w-screen-md w-full mx-auto px-16">
+            <div className="hidden md:block max-w-screen-md w-full mx-auto px-16">
                 <swiper-container
                     slides-per-view={data.length > 4 ? 4 : data.length}
                     pagination="true"
