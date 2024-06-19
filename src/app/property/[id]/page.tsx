@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import Footer from "@/components/footer"
 import Header from "@/components/header"
 import Image from 'next/image';
-import Logo from '@/public/logo-colored.svg';
+import Logo from '@/public/lf-logo.jpg';
 import PropertySwiper from '@/components/property-swiper';
 import { Separator } from "@/components/ui/separator"
 import { fetchAPI } from "@/lib/fetch-api";
