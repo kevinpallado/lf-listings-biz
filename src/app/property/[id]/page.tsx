@@ -40,7 +40,7 @@ export default async function Page({ params }: { params: Params }) {
             <main className="bg-black">
                 <div className="bg-white rounded-t-[48px]">
                     <div className="wrapper relative pb-10 pt-1 xl:pt-0">
-                        <div className="sticky z-10 bg-white top-0 mb-10">
+                        <div className="sticky z-10 bg-white top-0 mb-5">
                             <div className="flex items-center">
                                 <ul className="hidden xl:flex items-center flex-grow">
                                     <li className="max-w-60 w-full py-10 px-4 text-center">Overview</li>
@@ -57,7 +57,7 @@ export default async function Page({ params }: { params: Params }) {
 
                         <div className="xl:flex xl:space-x-10 2xl:space-x-16">
                             <div className="flex-1 min-w-0">
-                                <Breadcrumb className="mb-10">
+                                <Breadcrumb className="mb-5">
                                     <BreadcrumbList>
                                         <BreadcrumbItem>
                                             <BreadcrumbLink href="/">Home</BreadcrumbLink>
@@ -69,12 +69,12 @@ export default async function Page({ params }: { params: Params }) {
                                     </BreadcrumbList>
                                 </Breadcrumb>
 
-                                <div className="mb-20 space-y-2 sm:space-y-3">
+                                <div className="mb-5 space-y-2 sm:space-y-3">
                                     <h2 className="section-title">Property Description</h2>
                                     <p className="section-description">{data.PublicRemarks}</p>
                                 </div>
 
-                                <section id="commission" className="mb-20">
+                                <section id="commission" className="mb-5">
                                     <div>
                                         <h3 className="section-title mb-8">Commission</h3>
 
@@ -91,7 +91,7 @@ export default async function Page({ params }: { params: Params }) {
                                     </div>
                                 </section>
 
-                                <section id="overview" className="mb-20">
+                                <section id="overview" className="mb-5">
                                     <h2 className="section-title mb-8">Overview</h2>
 
                                     <table className="w-full">
