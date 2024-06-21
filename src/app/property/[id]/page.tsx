@@ -69,11 +69,6 @@ export default async function Page({ params }: { params: Params }) {
                                     </BreadcrumbList>
                                 </Breadcrumb>
 
-                                <div className="mb-5 space-y-2 sm:space-y-3">
-                                    <h2 className="section-title">Property Description</h2>
-                                    <p className="section-description">{data.PublicRemarks}</p>
-                                </div>
-
                                 <section id="commission" className="mb-5">
                                     <div>
                                         <h3 className="section-title mb-8">Commission</h3>
@@ -90,6 +85,11 @@ export default async function Page({ params }: { params: Params }) {
                                         </div>
                                     </div>
                                 </section>
+
+                                <div className="mb-5 space-y-2 sm:space-y-3">
+                                    <h2 className="section-title">Property Description</h2>
+                                    <p className="section-description">{data.PublicRemarks}</p>
+                                </div>
 
                                 <section id="overview" className="mb-5">
                                     <h2 className="section-title mb-8">Overview</h2>
