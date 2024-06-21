@@ -5,7 +5,7 @@ import { Property } from "@/types/property";
 import slugify from "slugify";
 
 export default function PropertyCard({ data } : { data: Property}) {
-    const slug = slugify(data.UnparsedAddress, { lower: true });
+    const slug = data.UnparsedAddress ? slugify(data.UnparsedAddress, { lower: true }) : "";
     return (
         <Link href={`/property/${data.ListingId}_${data.ListingKey}_${slug}`} className="relative">
             <Badge variant="secondary" className="absolute top-3 left-3 sm:top-4 sm:left-4 uppercase rounded z-10 bg-white/80 text-[10px] sm:text-sm">{data.ListingType}</Badge>
