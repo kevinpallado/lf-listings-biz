@@ -185,6 +185,9 @@ export default async function Page({ params }: { params: Params }) {
                                             </div>
                                         </div>
                                     </div>
+                                    <div className="mt-1.5">
+                                        <i>Information is Believed To Be Accurate But Not Guaranteed</i>
+                                    </div>
                                 </div>
                             </aside>
                         </div>
