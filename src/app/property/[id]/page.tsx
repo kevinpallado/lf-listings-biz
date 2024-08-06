@@ -69,7 +69,7 @@ export default async function Page({ params }: { params: Params }) {
                                     </BreadcrumbList>
                                 </Breadcrumb>
 
-                                <section id="commission" className="mb-5">
+                                {process.env.SHOW_COMMISSION === "true" && <section id="commission" className="mb-5">
                                     <div>
                                         <h3 className="section-title mb-8">Commission</h3>
 
@@ -84,7 +84,7 @@ export default async function Page({ params }: { params: Params }) {
                                             </div>
                                         </div>
                                     </div>
-                                </section>
+                                </section>}
 
                                 <div className="mb-5 space-y-2 sm:space-y-3">
                                     <h2 className="section-title">Property Description</h2>
