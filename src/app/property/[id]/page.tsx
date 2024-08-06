@@ -68,8 +68,7 @@ export default async function Page({ params }: { params: Params }) {
                                         </BreadcrumbItem>
                                     </BreadcrumbList>
                                 </Breadcrumb>
-
-                                {process.env.SHOW_COMMISSION === "true" && <section id="commission" className="mb-5">
+                                {process.env.SHOW_COMMISSION === "true" ? <section id="commission" className="mb-5">
                                     <div>
                                         <h3 className="section-title mb-8">Commission</h3>
 
@@ -83,6 +82,10 @@ export default async function Page({ params }: { params: Params }) {
                                                 <div className="font-bold" suppressHydrationWarning={true}>{data.CommissionType ? `${data.CommissionType} @ ${data.CommissionAmount}` : 'No Information'}</div>
                                             </div>
                                         </div>
+                                    </div>
+                                </section> : <section id="commission" className="mb-5">
+                                    <div>
+                                        <a className="no-underline hover:underline" href={`${process.env.BIZ_URL}/${params.id}`} target="_blank">Click the here to see buyer broker cooperating details</a>
                                     </div>
                                 </section>}
 
