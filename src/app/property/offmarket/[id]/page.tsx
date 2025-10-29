@@ -68,13 +68,11 @@ export default async function Page({ params }: { params: Params }) {
                                 </Breadcrumb>
                                 {process.env.SHOW_COMMISSION === "true" ? <section id="commission" className="mb-5">
                                     <div>
-                                        <h3 className="section-title mb-8">Commission</h3>
-
-                                        <div className="space-y-2 mb-8 px-4">
-                                            <div className="flex justify-between">
+                                        <div className="flex justify-between">
                                             <h3 className="section-title mb-8">Commission</h3>
-                                                {data.CompensationAgreementLink != null && <a className="no-underline hover:underline text-blue-600" href={data.CompensationAgreementLink} target="_blank">Download Compensation Agreement</a>}
-                                            </div>
+                                            {data.CompensationAgreementLink != null && <a className="no-underline hover:underline text-blue-600" href={data.CompensationAgreementLink} target="_blank">Download Compensation Agreement</a>}
+                                        </div>
+                                        <div className="space-y-2 mb-8 px-4">
                                             <div className="flex items-center">
                                                 <div className="w-4/12">Price</div>
                                                 <div className="font-bold" suppressHydrationWarning={true}>{data.ListPrice}</div>
