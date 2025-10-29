@@ -71,6 +71,10 @@ export default async function Page({ params }: { params: Params }) {
                                         <h3 className="section-title mb-8">Commission</h3>
 
                                         <div className="space-y-2 mb-8 px-4">
+                                            <div className="flex justify-between">
+                                            <h3 className="section-title mb-8">Commission</h3>
+                                                {data.CompensationAgreementLink != null && <a className="no-underline hover:underline text-blue-600" href={data.CompensationAgreementLink} target="_blank">Download Compensation Agreement</a>}
+                                            </div>
                                             <div className="flex items-center">
                                                 <div className="w-4/12">Price</div>
                                                 <div className="font-bold" suppressHydrationWarning={true}>{data.ListPrice}</div>
